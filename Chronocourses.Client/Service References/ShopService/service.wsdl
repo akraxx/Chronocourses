@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ShopService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Chronocourses.Model" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IShopService_GetShops_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShops" />
+  </wsdl:message>
+  <wsdl:message name="IShopService_GetShops_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShopsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopService_GetShop_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShop" />
+  </wsdl:message>
+  <wsdl:message name="IShopService_GetShop_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShopResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopService_SaveShop_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveShop" />
+  </wsdl:message>
+  <wsdl:message name="IShopService_SaveShop_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveShopResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopService_moveEntityFromShop_InputMessage">
+    <wsdl:part name="parameters" element="tns:moveEntityFromShop" />
+  </wsdl:message>
+  <wsdl:message name="IShopService_moveEntityFromShop_OutputMessage">
+    <wsdl:part name="parameters" element="tns:moveEntityFromShopResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopService_AddShop_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddShop" />
+  </wsdl:message>
+  <wsdl:message name="IShopService_AddShop_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddShopResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopService_DeleteShop_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteShop" />
+  </wsdl:message>
+  <wsdl:message name="IShopService_DeleteShop_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteShopResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopService_GetEntityByPosition_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEntityByPosition" />
+  </wsdl:message>
+  <wsdl:message name="IShopService_GetEntityByPosition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEntityByPositionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopService_GetProductsByProductType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsByProductType" />
+  </wsdl:message>
+  <wsdl:message name="IShopService_GetProductsByProductType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsByProductTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShopService_GetStartPosition_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStartPosition" />
+  </wsdl:message>
+  <wsdl:message name="IShopService_GetStartPosition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStartPositionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IShopService">
+    <wsdl:operation name="GetShops">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopService/GetShops" message="tns:IShopService_GetShops_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopService/GetShopsResponse" message="tns:IShopService_GetShops_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShop">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopService/GetShop" message="tns:IShopService_GetShop_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopService/GetShopResponse" message="tns:IShopService_GetShop_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveShop">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopService/SaveShop" message="tns:IShopService_SaveShop_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopService/SaveShopResponse" message="tns:IShopService_SaveShop_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="moveEntityFromShop">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopService/moveEntityFromShop" message="tns:IShopService_moveEntityFromShop_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopService/moveEntityFromShopResponse" message="tns:IShopService_moveEntityFromShop_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddShop">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopService/AddShop" message="tns:IShopService_AddShop_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopService/AddShopResponse" message="tns:IShopService_AddShop_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteShop">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopService/DeleteShop" message="tns:IShopService_DeleteShop_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopService/DeleteShopResponse" message="tns:IShopService_DeleteShop_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEntityByPosition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopService/GetEntityByPosition" message="tns:IShopService_GetEntityByPosition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopService/GetEntityByPositionResponse" message="tns:IShopService_GetEntityByPosition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsByProductType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopService/GetProductsByProductType" message="tns:IShopService_GetProductsByProductType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopService/GetProductsByProductTypeResponse" message="tns:IShopService_GetProductsByProductType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStartPosition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShopService/GetStartPosition" message="tns:IShopService_GetStartPosition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShopService/GetStartPositionResponse" message="tns:IShopService_GetStartPosition_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IShopService" type="tns:IShopService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetShops">
+      <soap:operation soapAction="http://tempuri.org/IShopService/GetShops" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShop">
+      <soap:operation soapAction="http://tempuri.org/IShopService/GetShop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveShop">
+      <soap:operation soapAction="http://tempuri.org/IShopService/SaveShop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="moveEntityFromShop">
+      <soap:operation soapAction="http://tempuri.org/IShopService/moveEntityFromShop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddShop">
+      <soap:operation soapAction="http://tempuri.org/IShopService/AddShop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteShop">
+      <soap:operation soapAction="http://tempuri.org/IShopService/DeleteShop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntityByPosition">
+      <soap:operation soapAction="http://tempuri.org/IShopService/GetEntityByPosition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsByProductType">
+      <soap:operation soapAction="http://tempuri.org/IShopService/GetProductsByProductType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStartPosition">
+      <soap:operation soapAction="http://tempuri.org/IShopService/GetStartPosition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ShopService">
+    <wsdl:port name="BasicHttpBinding_IShopService" binding="tns:BasicHttpBinding_IShopService">
+      <soap:address location="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/ShopService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

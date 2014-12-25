@@ -1,0 +1,53 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IProductService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IShopService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IBrandService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_ITypeProductService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IBrandService1" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_ITypeProductService1" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IEntityService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/ProductService/"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IProductService"
+                contract="ProductService.IProductService" name="BasicHttpBinding_IProductService" />
+            <endpoint address="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/ShopService/"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IShopService"
+                contract="ShopService.IShopService" name="BasicHttpBinding_IShopService" />
+            <endpoint address="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/BrandService/"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IBrandService"
+                contract="BrandService.IBrandService" name="BasicHttpBinding_IBrandService" />
+            <endpoint address="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/TypeProductService/"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ITypeProductService"
+                contract="TypeProductService.ITypeProductService" name="BasicHttpBinding_ITypeProductService" />
+            <endpoint address="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/EntityService/"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IEntityService"
+                contract="EntityService.IEntityService" name="BasicHttpBinding_IEntityService" />
+        </client>
+    </system.serviceModel>
+</configuration>

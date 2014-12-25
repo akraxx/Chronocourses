@@ -1,0 +1,477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ChronocoursesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ChronocoursesModelStoreContainer">
+    <EntitySet Name="Product" EntityType="ChronocoursesModel.Store.Product" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Brand" EntityType="ChronocoursesModel.Store.Brand" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Shop" EntityType="ChronocoursesModel.Store.Shop" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Address" EntityType="ChronocoursesModel.Store.Address" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Entity" EntityType="ChronocoursesModel.Store.Entity" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TypeProduct" EntityType="ChronocoursesModel.Store.TypeProduct" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EntityProduct" EntityType="ChronocoursesModel.Store.EntityProduct" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ProductMarque" Association="ChronocoursesModel.Store.ProductMarque">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Marque" EntitySet="Brand" />
+    </AssociationSet>
+    <AssociationSet Name="ShopAddress" Association="ChronocoursesModel.Store.ShopAddress">
+      <End Role="Shop" EntitySet="Shop" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="ShopEntity" Association="ChronocoursesModel.Store.ShopEntity">
+      <End Role="Shop" EntitySet="Shop" />
+      <End Role="Entity" EntitySet="Entity" />
+    </AssociationSet>
+    <AssociationSet Name="ProductTypeProduct" Association="ChronocoursesModel.Store.ProductTypeProduct">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="TypeProduct" EntitySet="TypeProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EntityProduct_Entity" Association="ChronocoursesModel.Store.FK_EntityProduct_Entity">
+      <End Role="Entity" EntitySet="Entity" />
+      <End Role="EntityProduct" EntitySet="EntityProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EntityProduct_Product" Association="ChronocoursesModel.Store.FK_EntityProduct_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="EntityProduct" EntitySet="EntityProduct" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="BrandID" Type="int" Nullable="false" />
+    <Property Name="TypeProductID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Available" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Shop">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Height" Type="smallint" Nullable="false" />
+    <Property Name="Width" Type="smallint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AddressID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Number" Type="smallint" Nullable="false" />
+    <Property Name="ZipCode" Type="int" Nullable="false" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Country" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Street" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Entity">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShopID" Type="int" Nullable="false" />
+    <Property Name="PositionX" Type="int" Nullable="false" />
+    <Property Name="PositionY" Type="int" Nullable="false" />
+    <Property Name="Label" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Container" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeProduct">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Label" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EntityProduct">
+    <Key>
+      <PropertyRef Name="Entity_ID" />
+      <PropertyRef Name="Product_ID" />
+    </Key>
+    <Property Name="Entity_ID" Type="int" Nullable="false" />
+    <Property Name="Product_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ProductMarque">
+    <End Role="Product" Type="ChronocoursesModel.Store.Product" Multiplicity="*" />
+    <End Role="Marque" Type="ChronocoursesModel.Store.Brand" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <ReferentialConstraint>
+      <Principal Role="Marque">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ShopAddress">
+    <End Role="Shop" Type="ChronocoursesModel.Store.Shop" Multiplicity="*" />
+    <End Role="Address" Type="ChronocoursesModel.Store.Address" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Shop">
+        <PropertyRef Name="AddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ShopEntity">
+    <End Role="Shop" Type="ChronocoursesModel.Store.Shop" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Entity" Type="ChronocoursesModel.Store.Entity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shop">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Entity">
+        <PropertyRef Name="ShopID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductTypeProduct">
+    <End Role="Product" Type="ChronocoursesModel.Store.Product" Multiplicity="*" />
+    <End Role="TypeProduct" Type="ChronocoursesModel.Store.TypeProduct" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <ReferentialConstraint>
+      <Principal Role="TypeProduct">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="TypeProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EntityProduct_Entity">
+    <End Role="Entity" Type="ChronocoursesModel.Store.Entity" Multiplicity="1" />
+    <End Role="EntityProduct" Type="ChronocoursesModel.Store.EntityProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EntityProduct">
+        <PropertyRef Name="Entity_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EntityProduct_Product">
+    <End Role="EntityProduct" Type="ChronocoursesModel.Store.EntityProduct" Multiplicity="*" />
+    <End Role="Product" Type="ChronocoursesModel.Store.Product" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="EntityProduct">
+        <PropertyRef Name="Product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ChronocoursesModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ChronocoursesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Product" EntityType="ChronocoursesModel.Product" />
+          <EntitySet Name="Brand" EntityType="ChronocoursesModel.Brand" />
+          <AssociationSet Name="ProductMarque" Association="ChronocoursesModel.ProductMarque">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Marque" EntitySet="Brand" />
+          </AssociationSet>
+          <EntitySet Name="Shop" EntityType="ChronocoursesModel.Shop" />
+          <EntitySet Name="Address" EntityType="ChronocoursesModel.Address" />
+          <EntitySet Name="Entity" EntityType="ChronocoursesModel.Entity" />
+          <AssociationSet Name="ShopAddress" Association="ChronocoursesModel.ShopAddress">
+            <End Role="Shop" EntitySet="Shop" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="ShopEntity" Association="ChronocoursesModel.ShopEntity">
+            <End Role="Shop" EntitySet="Shop" />
+            <End Role="Entity" EntitySet="Entity" />
+          </AssociationSet>
+          <EntitySet Name="TypeProduct" EntityType="ChronocoursesModel.TypeProduct" />
+          <AssociationSet Name="ProductTypeProduct" Association="ChronocoursesModel.ProductTypeProduct">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="TypeProduct" EntitySet="TypeProduct" />
+          </AssociationSet>
+          <AssociationSet Name="EntityProduct" Association="ChronocoursesModel.EntityProduct">
+            <End Role="Entity" EntitySet="Entity" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Double" Name="Price" Nullable="false" />
+          <NavigationProperty Name="Brand" Relationship="ChronocoursesModel.ProductMarque" FromRole="Product" ToRole="Marque" />
+          <Property Type="Int32" Name="BrandID" Nullable="false" />
+          <NavigationProperty Name="TypeProduct" Relationship="ChronocoursesModel.ProductTypeProduct" FromRole="Product" ToRole="TypeProduct" />
+          <Property Type="Int32" Name="TypeProductID" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="Boolean" Name="Available" Nullable="false" />
+          <NavigationProperty Name="Entity" Relationship="ChronocoursesModel.EntityProduct" FromRole="Product" ToRole="Entity" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Product" Relationship="ChronocoursesModel.ProductMarque" FromRole="Marque" ToRole="Product" />
+          <Property Type="String" Name="Name" Nullable="false" />
+        </EntityType>
+        <Association Name="ProductMarque">
+          <End Type="ChronocoursesModel.Product" Role="Product" Multiplicity="*" />
+          <End Type="ChronocoursesModel.Brand" Role="Marque" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="Marque">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int16" Name="Height" Nullable="false" />
+          <Property Type="Int16" Name="Width" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="ChronocoursesModel.ShopAddress" FromRole="Shop" ToRole="Address" />
+          <Property Type="Int32" Name="AddressID" Nullable="false" />
+          <NavigationProperty Name="Entity" Relationship="ChronocoursesModel.ShopEntity" FromRole="Shop" ToRole="Entity" />
+        </EntityType>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Shop" Relationship="ChronocoursesModel.ShopAddress" FromRole="Address" ToRole="Shop" />
+          <Property Type="Int16" Name="Number" Nullable="false" />
+          <Property Type="Int32" Name="ZipCode" Nullable="false" />
+          <Property Type="String" Name="City" Nullable="false" />
+          <Property Type="String" Name="Country" Nullable="false" />
+          <Property Type="String" Name="Street" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Entity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Shop" Relationship="ChronocoursesModel.ShopEntity" FromRole="Entity" ToRole="Shop" />
+          <Property Type="Int32" Name="ShopID" Nullable="false" />
+          <Property Type="Int32" Name="PositionX" Nullable="false" />
+          <Property Type="Int32" Name="PositionY" Nullable="false" />
+          <Property Type="String" Name="Label" Nullable="false" />
+          <Property Type="Boolean" Name="Container" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="ChronocoursesModel.EntityProduct" FromRole="Entity" ToRole="Product" />
+        </EntityType>
+        <Association Name="ShopAddress">
+          <End Type="ChronocoursesModel.Shop" Role="Shop" Multiplicity="*" />
+          <End Type="ChronocoursesModel.Address" Role="Address" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Shop">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ShopEntity">
+          <End Type="ChronocoursesModel.Shop" Role="Shop" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ChronocoursesModel.Entity" Role="Entity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Entity">
+              <PropertyRef Name="ShopID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TypeProduct">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Label" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="ChronocoursesModel.ProductTypeProduct" FromRole="TypeProduct" ToRole="Product" />
+        </EntityType>
+        <Association Name="ProductTypeProduct">
+          <End Type="ChronocoursesModel.Product" Role="Product" Multiplicity="*" />
+          <End Type="ChronocoursesModel.TypeProduct" Role="TypeProduct" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <ReferentialConstraint>
+            <Principal Role="TypeProduct">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="TypeProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EntityProduct">
+          <End Type="ChronocoursesModel.Entity" Role="Entity" Multiplicity="*" >
+          </End>
+          <End Type="ChronocoursesModel.Product" Role="Product" Multiplicity="*" >
+          </End>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ChronocoursesModelStoreContainer" CdmEntityContainer="ChronocoursesEntities">
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="IsTypeOf(ChronocoursesModel.Product)">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+          <ScalarProperty Name="TypeProductID" ColumnName="TypeProductID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Available" ColumnName="Available" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Brand">
+      <EntityTypeMapping TypeName="IsTypeOf(ChronocoursesModel.Brand)">
+        <MappingFragment StoreEntitySet="Brand">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shop">
+      <EntityTypeMapping TypeName="IsTypeOf(ChronocoursesModel.Shop)">
+        <MappingFragment StoreEntitySet="Shop">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Address">
+      <EntityTypeMapping TypeName="IsTypeOf(ChronocoursesModel.Address)">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entity">
+      <EntityTypeMapping TypeName="IsTypeOf(ChronocoursesModel.Entity)">
+        <MappingFragment StoreEntitySet="Entity">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ShopID" ColumnName="ShopID" />
+          <ScalarProperty Name="PositionX" ColumnName="PositionX" />
+          <ScalarProperty Name="PositionY" ColumnName="PositionY" />
+          <ScalarProperty Name="Label" ColumnName="Label" />
+          <ScalarProperty Name="Container" ColumnName="Container" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeProduct">
+      <EntityTypeMapping TypeName="IsTypeOf(ChronocoursesModel.TypeProduct)">
+        <MappingFragment StoreEntitySet="TypeProduct">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Label" ColumnName="Label" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EntityProduct" TypeName="ChronocoursesModel.EntityProduct" StoreEntitySet="EntityProduct">
+      <EndProperty Name="Entity">
+        <ScalarProperty Name="ID" ColumnName="Entity_ID" />
+      </EndProperty>
+      <EndProperty Name="Product">
+        <ScalarProperty Name="ID" ColumnName="Product_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Chronocourses">
+        <EntityTypeShape EntityType="ChronocoursesModel.Product" Width="1.5" PointX="3.375" PointY="5.375" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="ChronocoursesModel.Brand" Width="1.5" PointX="5.25" PointY="5.375" Height="1.59568359375" />
+        <AssociationConnector Association="ChronocoursesModel.ProductMarque">
+          <ConnectorPoint PointX="4.875" PointY="6.172841796875" />
+          <ConnectorPoint PointX="5.25" PointY="6.172841796875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ChronocoursesModel.Shop" Width="1.5" PointX="7.75" PointY="2.625" Height="2.3648893229166661" />
+        <EntityTypeShape EntityType="ChronocoursesModel.Address" Width="1.5" PointX="9.75" PointY="2.625" Height="2.364889322916667" />
+        <EntityTypeShape EntityType="ChronocoursesModel.Entity" Width="1.5" PointX="3.5" PointY="2.125" Height="2.3648893229166665" />
+        <AssociationConnector Association="ChronocoursesModel.ShopAddress">
+          <ConnectorPoint PointX="9.25" PointY="3.8074446614583328" />
+          <ConnectorPoint PointX="9.75" PointY="3.8074446614583328" />
+        </AssociationConnector>
+        <AssociationConnector Association="ChronocoursesModel.ShopEntity">
+          <ConnectorPoint PointX="7.75" PointY="3.5574446614583333" />
+          <ConnectorPoint PointX="5" PointY="3.5574446614583333" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="ChronocoursesModel.TypeProduct" Width="1.5" PointX="1.375" PointY="5.5" Height="1.5956835937499996" />
+        <AssociationConnector Association="ChronocoursesModel.ProductTypeProduct">
+          <ConnectorPoint PointX="3.375" PointY="6.297841796875" />
+          <ConnectorPoint PointX="2.875" PointY="6.297841796875" />
+        </AssociationConnector>
+        <AssociationConnector Association="ChronocoursesModel.EntityProduct">
+          <ConnectorPoint PointX="4.1875" PointY="4.6821907552083326" />
+          <ConnectorPoint PointX="4.1875" PointY="5.375" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,24 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IProductService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IBrandService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/ProductService/"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IProductService"
+                contract="ProductService.IProductService" name="BasicHttpBinding_IProductService" />
+            <endpoint address="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/BrandService/"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IBrandService"
+                contract="BrandService.IBrandService" name="BasicHttpBinding_IBrandService" />
+        </client>
+    </system.serviceModel>
+</configuration>

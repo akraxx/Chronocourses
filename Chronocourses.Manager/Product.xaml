@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="Chronocourses.Manager.ProductControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="570*" />
+            <ColumnDefinition Width="230*" />
+        </Grid.ColumnDefinitions>
+        <DataGrid Name="Products" Margin="0,30,0,0" Height="127" VerticalAlignment="Top" AutoGenerateColumns="False" ItemsSource="{Binding Product}" Grid.ColumnSpan="2" CanUserDeleteRows="True" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
+                <DataGridTextColumn Header="Brand" Binding="{Binding Brand.Name}"/>
+                <DataGridTextColumn Header="ProductType" Binding="{Binding TypeProduct.Label}"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                <DataGridCheckBoxColumn Header="Available" Binding="{Binding Available}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TabControl Margin="12,163,12,12" Name="tabControl1" Grid.ColumnSpan="2">
+            <TabItem Header="ADD">
+                <Grid>
+                    <Label Content="Product addition : " Height="28" HorizontalAlignment="Left" Margin="35,25,0,0" Name="label1" VerticalAlignment="Top"/>
+                    <Label Content="Name : " Height="35" HorizontalAlignment="Left" Margin="50,75,0,0" Name="label4" VerticalAlignment="Top" Width="143" />
+                    <Label Content="Product type : " Height="39" HorizontalAlignment="Left" Margin="50,125,0,0" Name="label7" VerticalAlignment="Top" Width="128" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="199,75,0,0" Name="Name" VerticalAlignment="Top" Width="187" />
+                    <ComboBox DisplayMemberPath="Label" Height="29" HorizontalAlignment="Left" Margin="199,125,0,0" Name="TypeProducts" VerticalAlignment="Top" Width="187" />
+                    <Label Content="Product description" Height="35" HorizontalAlignment="Left" Margin="50,224,0,0" Name="label2" VerticalAlignment="Top" Width="143" />
+                    <Label Content="Brand :" Height="35" HorizontalAlignment="Left" Margin="50,175,0,0" Name="label6" VerticalAlignment="Top" Width="143" />
+                    <ComboBox DisplayMemberPath="Name" Height="29" HorizontalAlignment="Left" Margin="199,175,0,0" Name="Brands" VerticalAlignment="Top" Width="187" />
+                    <Label Content="Price : " Height="35" HorizontalAlignment="Left" Margin="427,71,0,0" Name="label5" VerticalAlignment="Top" Width="54" />
+                    <TextBox Height="23" Margin="516,71,0,0" Name="Price" VerticalAlignment="Top" HorizontalAlignment="Left" Width="157" />
+                    <TextBox Height="55" HorizontalAlignment="Left" Margin="199,224,0,0" Name="Description" VerticalAlignment="Top" Width="187" />
+                    <Button Content="Add product" Height="28" Margin="331,297,0,0" Name="Add" VerticalAlignment="Top" Width="148" Click="Add_Click" HorizontalAlignment="Left" />
+                    <CheckBox Content="Available" Height="16" HorizontalAlignment="Left" Margin="516,243,0,0" Name="Available" VerticalAlignment="Top" Width="81" />
+                    <Button Content="Add product type" Height="25" HorizontalAlignment="Left" Margin="495,132,0,0" Name="AddCat" VerticalAlignment="Top" Width="162" Click="AddCat_Click"/>
+                    <Button Content="Add brand" Height="25" HorizontalAlignment="Left" Margin="495,175,0,0" Name="AddBrand" VerticalAlignment="Top" Width="162" Click="AddBrand_Click"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="EDIT" Name="Edit">
+
+                <Grid Margin="0,0,0,0">
+                    <Grid Height="337" Margin="0,6,0,0">
+                        <Label Content="Product selected" Height="35" HorizontalAlignment="Left" Margin="10,10,0,0" Name="label9" VerticalAlignment="Top" Width="143" />
+                        <Label Content="Name :" Height="35" HorizontalAlignment="Left" Margin="48,51,0,0" Name="label10" VerticalAlignment="Top" Width="143" />
+                        <Label Content="Price :" Height="35" HorizontalAlignment="Left" Margin="48,92,0,0" Name="label13" VerticalAlignment="Top" Width="143" />
+                        <Label Content="Brand :" Height="35" HorizontalAlignment="Left" Margin="315,51,0,0" Name="label14" VerticalAlignment="Top" Width="143" />
+                        <Label Content="Product type : " Height="39" HorizontalAlignment="Left" Margin="315,90,0,0" Name="label15" VerticalAlignment="Top" Width="128" />
+                        <TextBox Height="23" HorizontalAlignment="Left" Margin="116,53,0,0" Name="NameEDIT" Text="{Binding ElementName=Products, Path=SelectedItem.Name}" VerticalAlignment="Top" Width="110" />
+                        <TextBox Height="23" HorizontalAlignment="Left" Margin="116,92,0,0" Name="PriceEDIT" Text="{Binding ElementName=Products, Path=SelectedItem.Price}" VerticalAlignment="Top" Width="110" />
+                        <Button Content="Save modifications" Height="29" HorizontalAlignment="Left" Margin="146,226,0,0" Name="Save" VerticalAlignment="Top" Width="162" Click="Save_Click" />
+                        <Label Content="Product description" Height="35" HorizontalAlignment="Left" Margin="116,151,0,0" Name="label16" VerticalAlignment="Top" Width="143" />
+                        <TextBox Height="83" HorizontalAlignment="Left" Margin="315,134,0,0" Name="DescriptionEDIT" Text="{Binding ElementName=Products, Path=SelectedItem.Description}" VerticalAlignment="Top" Width="302" />
+                        <ComboBox DisplayMemberPath="Name" Height="23" HorizontalAlignment="Left" Margin="439,51,0,0" Name="BrandEDIT" SelectedValue="{Binding ElementName=Products, Path=SelectedItem.BrandID, Mode=TwoWay}" SelectedValuePath="ID" VerticalAlignment="Top" Width="120" />
+                        <ComboBox DisplayMemberPath="Label" Height="23" HorizontalAlignment="Left" Margin="439,92,0,0" Name="CategorieEDIT" SelectedValue="{Binding ElementName=Products, Path=SelectedItem.TypeProductID, Mode=TwoWay}" SelectedValuePath="ID" VerticalAlignment="Top" Width="120" />
+                        <Button Content="Delete product" Height="28" Margin="439,226,0,0" Name="DEL" VerticalAlignment="Top" Width="149" HorizontalAlignment="Left" Click="Del_Click" />
+                        <Label Content="or" Height="28" HorizontalAlignment="Left" Margin="358,226,0,0" Name="label11" VerticalAlignment="Top" />
+                        <CheckBox Content="Available" Height="16" HorizontalAlignment="Left" Margin="628,70,0,0" Name="checkBowEDIT" VerticalAlignment="Top" Width="81" IsChecked="{Binding ElementName=Products, Path=SelectedItem.Available, Mode=TwoWay}" />
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        
+    </Grid>
+</UserControl>

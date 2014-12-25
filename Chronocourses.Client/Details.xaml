@@ -1,0 +1,71 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="Chronocourses.Client.Details"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot est la grille racine où tout le contenu de la page est placé-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contient le nom de l'application et le titre de la page-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="Chronocourses" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="DETAILS" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" TextAlignment="Center"/>
+        </StackPanel>
+
+        <!--ContentPanel - placez tout contenu supplémentaire ici-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,0,50">
+            <TextBlock HorizontalAlignment="Left" Margin="39,0,0,87" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="24" Height="38" Text="Products"/>
+            <TextBlock HorizontalAlignment="Right" Margin="0,0,39,87" TextWrapping="Wrap" VerticalAlignment="Bottom" Height="38" Width="107" FontSize="24" Text="Summary"/>
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="207,23,0,0" Name="nameText" Text="" VerticalAlignment="Top" Width="163" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="36,23,0,0" Name="textBlock1" Text="Name :" VerticalAlignment="Top" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="36,71,0,0" Name="textBlock2" Text="Price :" VerticalAlignment="Top" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="207,71,0,0" Name="priceText" Text="" VerticalAlignment="Top" Width="163" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="36,119,0,0" Name="textBlock3" Text="Brand :" VerticalAlignment="Top" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="207,119,0,0" Name="brandText" Text="" VerticalAlignment="Top" Width="163" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="36,167,0,0" Name="textBlock5" Text="Product Type :" VerticalAlignment="Top" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="207,167,0,0" Name="productTypeText" Text="" VerticalAlignment="Top" Width="163" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="39,215,0,0" Name="textBlock7" Text="Description :" VerticalAlignment="Top" />
+            <TextBlock Height="87" HorizontalAlignment="Left" Margin="207,215,0,0" Name="description" Text="" VerticalAlignment="Top" Width="253" />
+            <Border BorderBrush="White" BorderThickness="2" Background="Transparent" Margin="207,308,20,131">
+                <Grid>
+                    <TextBlock Height="30" Name="textBlock9" Text="Quantity :" VerticalAlignment="Top" Margin="0,11,131,0" HorizontalAlignment="Right" Width="86" />
+                    <TextBox Height="60" Margin="0,-2,18,0" Name="quantity" Text="" VerticalAlignment="Top" KeyUp="quantity_KeyUp" HorizontalAlignment="Right" Width="90" FontSize="16" />
+                    <Button Content="Add to cart" Height="67" Margin="0,49,6,0" Name="Add" VerticalAlignment="Top" Width="229" HorizontalAlignment="Right" Click="Add_Click" />
+                </Grid>
+            </Border>
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="36,321,0,0" Name="textBlock4" Text="Command :" VerticalAlignment="Top" />
+            <Slider x:Name="navigation" ManipulationCompleted="navigation_ManipulationCompleted" Margin="39,0,39,13" VerticalAlignment="Bottom" Height="89" Value="28" Maximum="60" LargeChange="10" Foreground="#FF353535" SmallChange="10"/>
+        </Grid>
+        
+        <Grid Name="GridCardView" Grid.Row="1" Height="55" VerticalAlignment="Bottom">
+
+        </Grid>
+    </Grid>
+
+
+    <!--<phone:PhoneApplicationPage.ApplicationBar >
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Edit"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Save"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="ÉlémentMenu 1"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar> -->
+
+</phone:PhoneApplicationPage>

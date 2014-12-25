@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c09b1a83-828d-4658-a7b6-288a47a8e7ea" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/TypeProductService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="e8c23b44-3dfc-487f-843b-2eb3cec415fd" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/TypeProductService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="6d464adf-b3f9-406c-9207-2911734b1396" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/TypeProductService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="7a60e898-813f-4e9f-b136-12bd8dae8d8e" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/TypeProductService/mex" />
+    <MetadataFile FileName="Chronocourses.Model.xsd" MetadataType="Schema" ID="a9be95f3-fa36-4827-ab85-a27a916b3f0a" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/TypeProductService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

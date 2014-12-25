@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0e1f126b-5792-478c-838b-ecf2b2c2a61c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/TypeProductService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="2177c97d-8ef4-43f7-b7e7-a45c7eb595e0" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/TypeProductService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="aa98309b-6adf-40e2-89ba-6faf67973ba2" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/TypeProductService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="7ed5573c-91dc-4f47-b5c8-c434c7411efa" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/TypeProductService/mex" />
+    <MetadataFile FileName="Chronocourses.Model.xsd" MetadataType="Schema" ID="12964e04-c0ea-4227-bf2c-8856defc5ff6" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/TypeProductService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

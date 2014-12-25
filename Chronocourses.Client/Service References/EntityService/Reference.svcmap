@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6cd30f69-69f1-4d2e-8369-0c74db6f49ee" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/EntityService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="81a39d7b-207e-4320-bb8a-22ca2472c6da" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/EntityService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="bfe6f2d8-7cdf-4856-8436-f8d6c0835309" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/EntityService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="4ef13c3a-0e50-4b8e-a64d-7a9b303de19d" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/EntityService/mex" />
+    <MetadataFile FileName="Chronocourses.Model.xsd" MetadataType="Schema" ID="090fcfe8-6c22-4ae4-9ff2-58d37f16f467" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Chronocourses.Services/EntityService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

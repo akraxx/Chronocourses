@@ -1,0 +1,74 @@
+﻿<Page x:Class="Chronocourses.Manager.Map"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="800"
+	Title="ShopMap" Name="ShopMap">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl Height="292" HorizontalAlignment="Left" Margin="12,51,0,0" Name="tabControl1" VerticalAlignment="Top" Width="200" SelectionChanged="tabItemChanged">
+            <TabItem Header="ADD" Name="addTabItem">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200*" />
+                        <RowDefinition Height="60*" />
+                    </Grid.RowDefinitions>
+                    <ComboBox DisplayMemberPath="Name" Height="23" HorizontalAlignment="Left" Margin="95,70,0,0" Name="addProductComboBox" VerticalAlignment="Top" Width="89" />
+                    <Label Content="Product" Height="28" HorizontalAlignment="Left" Margin="6,65,0,0" Name="label2" VerticalAlignment="Top" Width="56" HorizontalContentAlignment="Center" />
+                    <Button Content="ADD" Height="23" HorizontalAlignment="Left" Margin="68,10,0,0" Name="addButton" VerticalAlignment="Top" Width="65" Click="addButton_Click" Grid.Row="1" />
+                    <CheckBox Content="Container" Height="21" HorizontalAlignment="Left" Margin="54,99,0,0" Name="addCheckBox" VerticalAlignment="Top" Width="79" HorizontalContentAlignment="Center" IsEnabled="False" />
+                    <TextBox Height="23" HorizontalAlignment="Right" Margin="0,36,6,0" Name="addTextBox" VerticalAlignment="Top" Width="89" KeyDown="keyDownAddTextBox" />
+                    <Label Content="Entity Name" Height="28" HorizontalAlignment="Left" Margin="6,36,0,0" Name="label1" VerticalAlignment="Top" Width="83" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="EDIT" Name="editTabItem">
+                <Grid Height="265">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="190*" />
+                    </Grid.ColumnDefinitions>
+                    <CheckBox Content="Container" Height="21" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="54,151,0,0" Name="editCheckBox" VerticalAlignment="Top" Width="77" Grid.Column="1" Click="editCheckBox_Click" />
+                    <Label Content="Products" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="63,0,0,0" Name="label3" VerticalAlignment="Top" Width="56" Grid.Column="1" />
+                    <Button Content="DELETE" Grid.Column="1" Height="23" Margin="27,236,20,6" Name="deleteButton" VerticalAlignment="Center" Click="deleteButton_Click" />
+                    <Button Content="REMOVE PRODUCT" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="27,178,0,0" Name="removeButton" VerticalAlignment="Top" Width="143" Click="removeButton_Click" />
+                    <Button Content="REMOVE ALL PRODUCTS" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="27,207,0,0" Name="removeAllProductsButton" VerticalAlignment="Top" Width="143" Click="removeAllProductsButton_Click" />
+                    <ListBox DisplayMemberPath="Name" Grid.Column="1" Height="125" HorizontalAlignment="Left" Margin="27,20,0,0" Name="editProductComboBox" VerticalAlignment="Top" Width="143" SelectedValuePath="Label" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="MOVE" Name="moveItem" Margin="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="259*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <RichTextBox Height="212" HorizontalAlignment="Left" Margin="5,8,0,0" Name="moveTextBox" VerticalAlignment="Top" Width="179" IsReadOnly="True" IsEnabled="False" />
+                    <Button Content="REINITIALIZE" Height="23" HorizontalAlignment="Left" Margin="44,226,0,0" Name="moveReinitializeButton" VerticalAlignment="Top" Width="104" Click="moveReinitializeButton_Click" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <ComboBox Grid.Column="0" DisplayMemberPath="Name" Height="33" HorizontalAlignment="Left" Margin="13,12,0,0" Name="shopComboBox" VerticalAlignment="Top" Width="194" SelectionChanged="shopSelected" />
+        <Slider Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Left" Minimum="1" x:Name="slider" />
+        <ScrollViewer Grid.Column="2" BorderBrush="Black" Name="scrollViewer" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Margin="1,-8,-1,8">
+            <!--<Border   BorderBrush="Black" BorderThickness="2">-->
+                <Canvas Name="canvas" RenderTransformOrigin="0.5,0.5" Height="390" Width="518">
+
+                    <Canvas.LayoutTransform>
+                        <TransformGroup>
+                            <ScaleTransform x:Name="scaleTransform"/>
+                        </TransformGroup>
+                    </Canvas.LayoutTransform>
+
+                </Canvas>
+            <!--</Border>-->
+
+        </ScrollViewer>
+        <RichTextBox Height="143" HorizontalAlignment="Left" Margin="12,349,0,0" Name="logBox" VerticalAlignment="Top" Width="200" IsEnabled="True" IsReadOnly="True" VerticalScrollBarVisibility="Visible" />
+    </Grid>
+</Page>

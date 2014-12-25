@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Chronocourses.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Chronocourses.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfBrand">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Brand" nillable="true" type="tns:Brand" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBrand" nillable="true" type="tns:ArrayOfBrand" />
+  <xs:complexType name="Brand">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChangeTracker" nillable="true" type="tns:ObjectChangeTracker" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:ArrayOfProduct" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Brand" nillable="true" type="tns:Brand" />
+  <xs:complexType name="ObjectChangeTracker">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExtendedProperties" nillable="true" type="tns:ExtendedPropertiesDictionary" />
+      <xs:element minOccurs="0" name="ObjectsAddedToCollectionProperties" nillable="true" type="tns:ObjectsAddedToCollectionProperties" />
+      <xs:element minOccurs="0" name="ObjectsRemovedFromCollectionProperties" nillable="true" type="tns:ObjectsRemovedFromCollectionProperties" />
+      <xs:element minOccurs="0" name="OriginalValues" nillable="true" type="tns:OriginalValuesDictionary" />
+      <xs:element minOccurs="0" name="State" type="tns:ObjectState" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="ObjectChangeTracker" nillable="true" type="tns:ObjectChangeTracker" />
+  <xs:complexType name="ExtendedPropertiesDictionary">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExtendedProperties">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Name" nillable="true" type="xs:string" />
+            <xs:element name="ExtendedProperty" nillable="true" type="xs:anyType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExtendedPropertiesDictionary" nillable="true" type="tns:ExtendedPropertiesDictionary" />
+  <xs:complexType name="ObjectsAddedToCollectionProperties">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AddedObjectsForProperty">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CollectionPropertyName" nillable="true" type="xs:string" />
+            <xs:element name="AddedObjects" nillable="true" type="tns:ObjectList" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ObjectsAddedToCollectionProperties" nillable="true" type="tns:ObjectsAddedToCollectionProperties" />
+  <xs:complexType name="ObjectList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ObjectValue" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ObjectList" nillable="true" type="tns:ObjectList" />
+  <xs:complexType name="ObjectsRemovedFromCollectionProperties">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeletedObjectsForProperty">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="CollectionPropertyName" nillable="true" type="xs:string" />
+            <xs:element name="DeletedObjects" nillable="true" type="tns:ObjectList" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ObjectsRemovedFromCollectionProperties" nillable="true" type="tns:ObjectsRemovedFromCollectionProperties" />
+  <xs:complexType name="OriginalValuesDictionary">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OriginalValues">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Name" nillable="true" type="xs:string" />
+            <xs:element name="OriginalValue" nillable="true" type="xs:anyType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OriginalValuesDictionary" nillable="true" type="tns:OriginalValuesDictionary" />
+  <xs:simpleType name="ObjectState">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Unchanged" />
+          <xs:enumeration value="Added" />
+          <xs:enumeration value="Modified" />
+          <xs:enumeration value="Deleted" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="ObjectState" nillable="true" type="tns:ObjectState" />
+  <xs:complexType name="ArrayOfProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProduct" nillable="true" type="tns:ArrayOfProduct" />
+  <xs:complexType name="Product">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Brand" nillable="true" type="tns:Brand" />
+      <xs:element minOccurs="0" name="BrandID" type="xs:int" />
+      <xs:element minOccurs="0" name="ChangeTracker" nillable="true" type="tns:ObjectChangeTracker" />
+      <xs:element minOccurs="0" name="Container" nillable="true" type="tns:Container" />
+      <xs:element minOccurs="0" name="ContainerID" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Price" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeProduct" nillable="true" type="tns:TypeProduct" />
+      <xs:element minOccurs="0" name="TypeProductID" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Product" nillable="true" type="tns:Product" />
+  <xs:complexType name="Container">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Product" nillable="true" type="tns:ArrayOfProduct" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Container" nillable="true" type="tns:Container" />
+  <xs:complexType name="Entity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChangeTracker" nillable="true" type="tns:ObjectChangeTracker" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PositionX" type="xs:int" />
+      <xs:element minOccurs="0" name="PositionY" type="xs:int" />
+      <xs:element minOccurs="0" name="Shop" nillable="true" type="tns:Shop" />
+      <xs:element minOccurs="0" name="ShopID" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Entity" nillable="true" type="tns:Entity" />
+  <xs:complexType name="Shop">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="tns:Address" />
+      <xs:element minOccurs="0" name="AddressID" type="xs:int" />
+      <xs:element minOccurs="0" name="ChangeTracker" nillable="true" type="tns:ObjectChangeTracker" />
+      <xs:element minOccurs="0" name="Entity" nillable="true" type="tns:ArrayOfEntity" />
+      <xs:element minOccurs="0" name="Height" type="xs:short" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Width" type="xs:short" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Shop" nillable="true" type="tns:Shop" />
+  <xs:complexType name="Address">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChangeTracker" nillable="true" type="tns:ObjectChangeTracker" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Number" type="xs:short" />
+      <xs:element minOccurs="0" name="Shop" nillable="true" type="tns:ArrayOfShop" />
+      <xs:element minOccurs="0" name="Street" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" type="xs:int" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="Address" nillable="true" type="tns:Address" />
+  <xs:complexType name="ArrayOfShop">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Shop" nillable="true" type="tns:Shop" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShop" nillable="true" type="tns:ArrayOfShop" />
+  <xs:complexType name="OtherEntity">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entity">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OtherEntity" nillable="true" type="tns:OtherEntity" />
+  <xs:complexType name="TypeProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChangeTracker" nillable="true" type="tns:ObjectChangeTracker" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:ArrayOfProduct" />
+    </xs:sequence>
+    <xs:attribute ref="ser:Id" />
+    <xs:attribute ref="ser:Ref" />
+  </xs:complexType>
+  <xs:element name="TypeProduct" nillable="true" type="tns:TypeProduct" />
+  <xs:complexType name="ArrayOfEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Entity" nillable="true" type="tns:Entity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEntity" nillable="true" type="tns:ArrayOfEntity" />
+</xs:schema>

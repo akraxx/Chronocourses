@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="Chronocourses.Client.CartView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="55" d:DesignWidth="480"
+             Name="CardViewControl">
+
+    <Border BorderBrush="White" BorderThickness="0,2,0,0" Background="Transparent">
+        <Grid x:Name="LayoutRoot">
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="190,12,0,0" Name="articlesLabel" Text="Articles : " VerticalAlignment="Top" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="321,12,0,0" Name="totalLabel" Text="Total : " VerticalAlignment="Top" />
+            <TextBlock Height="30" Margin="264,12,0,0" Name="articlesText" Text="{Binding ElementName=CardViewControl, Path=Cart.TotalArticles}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="41" TextAlignment="Right" />
+            <TextBlock Height="30" Margin="374,12,0,0" Name="totalText" Text="{Binding ElementName=CardViewControl, Path=Cart.TotalPrice}" VerticalAlignment="Top" TextAlignment="Right" HorizontalAlignment="Left" Width="69" />
+            <Button Content="My Cart" Height="71" HorizontalAlignment="Left" Margin="5,-9,0,0" Name="button1" VerticalAlignment="Top" Width="155" Click="button1_Click" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="449,12,0,0" Name="textBlock1" Text="€" VerticalAlignment="Top" Width="25" />
+        </Grid>
+    </Border>
+</UserControl>
